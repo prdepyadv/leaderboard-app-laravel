@@ -1,6 +1,6 @@
 # Leaderboard App - Laravel
 
-This is a leaderboard application built with the Laravel framework. The application allows users to be added, updated, and deleted, and scores can be incremented, decremented, reset, and reported.
+The Leaderboard App is a web application built with Laravel that allows users to manage a leaderboard with real-time score updates. Users can be added, deleted, and their scores incremented or decremented with ease. The leaderboard dynamically reorders users based on their scores. Clicking on a user reveals their details, including name, age, points, and address. The app also includes background jobs for generating QR codes of user addresses upon creation, and a scheduled job that selects and logs the user with the highest score every 5 minutes. If there is a tie, no winner is declared. Additionally, an API is provided to retrieve users grouped by scores, including the average age for each group. The app is fully customizable and comes with clear instructions to run locally.
 
 ## Running the Application
 
