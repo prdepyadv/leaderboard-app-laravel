@@ -30,7 +30,7 @@ class SaveUserAddressInQR implements ShouldQueue
         try{
             $this->saveQRCode();
         } catch (\Exception $e) {
-            Log::error('Error saving QR code: ' . $e->getMessage());
+            \Log::error('Error saving QR code: ' . $e->getMessage());
         }
 
     }
@@ -39,7 +39,7 @@ class SaveUserAddressInQR implements ShouldQueue
     {
         $user = User::find($this->userId);
         if (!$user) {
-            Log::error('User not found with UserId: ' . $this->userId);
+            \Log::error('User not found with UserId: ' . $this->userId);
             return;
         }
 
@@ -51,7 +51,7 @@ class SaveUserAddressInQR implements ShouldQueue
             $fileName = 'qrcodes/user_' . $this->userId . '_' . now()->timestamp . '.png';
             Storage::put($fileName, $response->body());
         } else {
-            Log::error('Error generating QR code: ' . $response->body());
+            \Log::error('Error generating QR code: ' . $response->body());
         }
     }
 }

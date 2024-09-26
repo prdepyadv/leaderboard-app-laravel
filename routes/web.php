@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WinnerController;
 
 Route::prefix('api')->group(function () {
     Route::get('/', function () {
@@ -16,4 +17,6 @@ Route::prefix('api')->group(function () {
     Route::put('/user/{id}/decrement', [UserController::class, 'subPoints']);
     Route::get('/user/{id}', [UserController::class, 'findOne']);
     Route::delete('/user/{id}', [UserController::class, 'delete']);
+
+    Route::get('/winners', [WinnerController::class, 'index']);
 });

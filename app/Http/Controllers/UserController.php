@@ -22,7 +22,7 @@ class UserController extends Controller
                 'data' => $users
             ]);
         } catch (\Exception $e) {
-            Log::error('Error retrieving users: ' . $e->getMessage());
+            \Log::error('Error retrieving users: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -47,7 +47,7 @@ class UserController extends Controller
                 'data' => $user
             ]);
         } catch (\Exception $e) {
-            Log::error('Error retrieving user: ' . $e->getMessage());
+            \Log::error('Error retrieving user: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -85,7 +85,7 @@ class UserController extends Controller
                 'data' => $user
             ], 201);
         } catch (\Exception $e) {
-            Log::error('Error adding user: ' . $e->getMessage());
+            \Log::error('Error adding user: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -106,7 +106,7 @@ class UserController extends Controller
                 'data' => $user
             ]);
         } catch (\Exception $e) {
-            Log::error('Error incrementing user points: ' . $e->getMessage());
+            \Log::error('Error incrementing user points: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -129,7 +129,7 @@ class UserController extends Controller
                 'data' => $user
             ]);
         } catch (\Exception $e) {
-            Log::error('Error decrementing user points: ' . $e->getMessage());
+            \Log::error('Error decrementing user points: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -155,7 +155,7 @@ class UserController extends Controller
                 'data' => null
             ]);
         } catch (\Exception $e) {
-            Log::error('Error deleting user: ' . $e->getMessage());
+            \Log::error('Error deleting user: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -173,7 +173,7 @@ class UserController extends Controller
                 'data' => null
             ]);
         } catch (\Exception $e) {
-            Log::error('Error resetting user scores: ' . $e->getMessage());
+            \Log::error('Error resetting user scores: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
@@ -185,19 +185,22 @@ class UserController extends Controller
     {
         try {
             $users = User::orderBy("points", "desc")->get();
-            $groupedUsersByPoints = $users->groupBy('points')->map(function ($group) {
+            $groupedUsersByPoints = $users->groupBy('points')->mapWithKeys(function ($group, $point) {
                 return [
-                    'names' => $group->pluck('name'),
-                    'average_age' => round($group->avg('age'))
+                    (string)$point => [
+                        'names' => $group->pluck('name'),
+                        'average_age' => round($group->avg('age'))
+                    ]
                 ];
             });
+
             return response()->json([
                 'error' => false,
                 'message' => 'Score report generated successfully',
                 'data' => $groupedUsersByPoints
             ]);
         } catch (\Exception $e) {
-            Log::error('Error generating score report: ' . $e->getMessage());
+            \Log::error('Error generating score report: ' . $e->getMessage());
             return response()->json([
                 'error' => true,
                 'message' => 'Oops! Something went wrong. Please try again later.',
