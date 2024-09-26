@@ -55,6 +55,8 @@ Your application should now be running at `http://localhost:8000`
 
 This application includes several API routes for managing users and winners. All API routes are prefixed with `/api`.
 
+For more detailed information on the API endpoints, please refer to [API_DOCUMENTATION.md](API_DOCUMENTATION.md).
+
 ### Users Routes
 
 - **GET `/api/users`**  
