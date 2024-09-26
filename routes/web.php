@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 
 Route::prefix('api')->group(function () {
+    Route::get('/', function () {
+        return response()->json(['status' => 'Connected']);
+    });
     Route::get('/users', [UserController::class, 'index']);
     Route::post('/users', [UserController::class, 'add']);
     Route::get('users/scores/report', [UserController::class, 'scoreReport']);
