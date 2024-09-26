@@ -25,7 +25,7 @@ class ResetUserScores extends Command
      */
     public function handle()
     {
-        User::query()->update(['points' => 0]);
+        User::where('points', '>', 0)->update(['points' => 0]);
         $this->info('All user scores have been reset to 0');
     }
 }
