@@ -56,34 +56,3 @@ Your application should now be running at `http://localhost:8000`
 This application includes several API routes for managing users and winners. All API routes are prefixed with `/api`.
 
 For more detailed information on the API endpoints, please refer to [API_DOCUMENTATION.md](API_DOCUMENTATION.md).
-
-### Users Routes
-
-- **GET `/api/users`**  
-  Fetch all users.
-
-- **POST `/api/users`**  
-  Add a new user.
-
-- **GET `/api/users/scores/report`**  
-  Fetch a report of user scores.
-
-- **POST `/api/users/scores/reset`**  
-  Reset all user scores.
-
-- **PUT `/api/user/{id}/increment`**  
-  Increment a user's score by one.
-
-- **PUT `/api/user/{id}/decrement`**  
-  Decrement a user's score by one.
-
-- **GET `/api/user/{id}`**  
-  Find a specific user by ID.
-
-- **DELETE `/api/user/{id}`**  
-  Delete a user by ID.
-
-### Winners Routes
-
-- **GET `/api/winners`**  
-  Fetch a list of all winners.
