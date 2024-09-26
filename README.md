@@ -13,31 +13,31 @@ To run this application on your local machine, follow these steps:
     cd leaderboard-app-laravel
     ```
 
-### 2. Install dependencies:**
+### 2. Install dependencies
 
     ```sh
     composer install
     ```
 
-### 3. Set up the environment file:**
+### 3. Set up the environment file
 
     ```sh
     cp .env.example .env
     ```
 
-### 4. Generate the application key:**
+### 4. Generate the application key
 
     ```sh
     php artisan key:generate
     ```
 
-### 5. Run migrations:**
+### 5. Run migrations
 
     ```sh
     php artisan migrate
     ```
 
-### 6. Start the development server:**
+### 6. Start the development server
 
     ```sh
     php artisan serve
