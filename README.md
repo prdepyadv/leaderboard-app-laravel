@@ -8,40 +8,40 @@ To run this application on your local machine, follow these steps:
 
 ### 1. Clone the repository
 
-    ```sh
-    git clone https://github.com/prdepyadv/leaderboard-app-laravel
-    cd leaderboard-app-laravel
-    ```
+```sh
+git clone https://github.com/prdepyadv/leaderboard-app-laravel
+cd leaderboard-app-laravel
+```
 
 ### 2. Install dependencies
 
-    ```sh
-    composer install
-    ```
+```sh
+composer install
+```
 
 ### 3. Set up the environment file
 
-    ```sh
-    cp .env.example .env
-    ```
+```sh
+cp .env.example .env
+```
 
 ### 4. Generate the application key
 
-    ```sh
-    php artisan key:generate
-    ```
+```sh
+php artisan key:generate
+```
 
 ### 5. Run migrations
 
-    ```sh
-    php artisan migrate
-    ```
+```sh
+php artisan migrate
+```
 
 ### 6. Start the development server
 
-    ```sh
-    php artisan serve
-    ```
+```sh
+php artisan serve
+```
 
 Your application should now be running at `http://localhost:8000`
 
